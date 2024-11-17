@@ -1,32 +1,74 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root,
-[data-theme] {
-  background: oklch(var(--b2));
+@layer base {
+  body {
+    @apply bg-[#030014] text-gray-100 font-sans antialiased;
+  }
 }
 
-body {
-  min-height: 100vh;
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 text-sm font-medium rounded-xl 
+    bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500
+    text-white transition-all duration-200 transform hover:scale-[1.02]
+    focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#030014]
+    shadow-[0_0_20px_rgba(79,70,229,0.2)] hover:shadow-[0_0_25px_rgba(79,70,229,0.3)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 text-sm font-medium rounded-xl
+    border border-gray-700 bg-gray-800/50 hover:bg-gray-700/50
+    text-gray-300 transition-all duration-200 transform hover:scale-[1.02]
+    focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-[#030014];
+  }
+
+  .card {
+    @apply rounded-2xl border border-gray-800/50 bg-gray-900/30 backdrop-blur-xl
+    shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]
+    transition-all duration-300;
+  }
+
+  .stat-card {
+    @apply flex flex-col items-center justify-center p-6 rounded-xl
+    border border-gray-800/50 bg-gray-900/20 backdrop-blur-sm
+    hover:bg-gray-800/30 transition-all duration-300 transform hover:scale-[1.02];
+  }
+
+  .input-primary {
+    @apply w-full px-4 py-3 bg-gray-900/50 border border-gray-700/50 rounded-xl
+    focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+    text-gray-100 placeholder-gray-500 transition-all duration-200;
+  }
 }
 
-h1,
-h2,
-h3,
-h4 {
-  margin-bottom: 0.5rem;
-  line-height: 1;
-}
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400;
+  }
 
-p {
-  margin: 1rem 0;
-}
+  .glass-effect {
+    @apply bg-gray-900/70 backdrop-blur-lg backdrop-filter;
+  }
 
-.btn {
-  @apply shadow-md;
-}
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
 
-.btn.btn-ghost {
-  @apply shadow-none;
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px rgba(79,70,229,0.2);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(79,70,229,0.4);
+    }
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
 }
