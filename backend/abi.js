@@ -1,0 +1,441 @@
+
+export const abiProver = [
+   {
+      "type":"constructor",
+      "inputs":[],
+   "stateMutability":"nonpayable"
+},
+{
+   "type":"function",
+   "name":"crossChainBalanceOf",
+   "inputs":[
+      {
+         "name":"_owner",
+         "type":"address",
+         "internalType":"address"
+      }
+   ],
+   "outputs":[
+      {
+         "name":"",
+         "type":"tuple",
+         "internalType":"struct Proof",
+         "components":[
+            {
+               "name":"seal",
+               "type":"tuple",
+               "internalType":"struct Seal",
+               "components":[
+                  {
+                     "name":"verifierSelector",
+                     "type":"bytes4",
+                     "internalType":"bytes4"
+                  },
+                  {
+                     "name":"seal",
+                     "type":"bytes32[8]",
+                     "internalType":"bytes32[8]"
+                  },
+                  {
+                     "name":"mode",
+                     "type":"uint8",
+                     "internalType":"enum ProofMode"
+                  }
+               ]
+            },
+            {
+               "name":"callGuestId",
+               "type":"bytes32",
+               "internalType":"bytes32"
+            },
+            {
+               "name":"length",
+               "type":"uint256",
+               "internalType":"uint256"
+            },
+            {
+               "name":"callAssumptions",
+               "type":"tuple",
+               "internalType":"struct CallAssumptions",
+               "components":[
+                  {
+                     "name":"proverContractAddress",
+                     "type":"address",
+                     "internalType":"address"
+                  },
+                  {
+                     "name":"functionSelector",
+                     "type":"bytes4",
+                     "internalType":"bytes4"
+                  },
+                  {
+                     "name":"settleBlockNumber",
+                     "type":"uint256",
+                     "internalType":"uint256"
+                  },
+                  {
+                     "name":"settleBlockHash",
+                     "type":"bytes32",
+                     "internalType":"bytes32"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name":"",
+         "type":"address",
+         "internalType":"address"
+      },
+      {
+         "name":"",
+         "type":"uint256",
+         "internalType":"uint256"
+      }
+   ],
+   "stateMutability":"nonpayable"
+},
+{
+   "type":"function",
+   "name":"proof",
+   "inputs":[
+
+   ],
+   "outputs":[
+      {
+         "name":"",
+         "type":"tuple",
+         "internalType":"struct Proof",
+         "components":[
+            {
+               "name":"seal",
+               "type":"tuple",
+               "internalType":"struct Seal",
+               "components":[
+                  {
+                     "name":"verifierSelector",
+                     "type":"bytes4",
+                     "internalType":"bytes4"
+                  },
+                  {
+                     "name":"seal",
+                     "type":"bytes32[8]",
+                     "internalType":"bytes32[8]"
+                  },
+                  {
+                     "name":"mode",
+                     "type":"uint8",
+                     "internalType":"enum ProofMode"
+                  }
+               ]
+            },
+            {
+               "name":"callGuestId",
+               "type":"bytes32",
+               "internalType":"bytes32"
+            },
+            {
+               "name":"length",
+               "type":"uint256",
+               "internalType":"uint256"
+            },
+            {
+               "name":"callAssumptions",
+               "type":"tuple",
+               "internalType":"struct CallAssumptions",
+               "components":[
+                  {
+                     "name":"proverContractAddress",
+                     "type":"address",
+                     "internalType":"address"
+                  },
+                  {
+                     "name":"functionSelector",
+                     "type":"bytes4",
+                     "internalType":"bytes4"
+                  },
+                  {
+                     "name":"settleBlockNumber",
+                     "type":"uint256",
+                     "internalType":"uint256"
+                  },
+                  {
+                     "name":"settleBlockHash",
+                     "type":"bytes32",
+                     "internalType":"bytes32"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "stateMutability":"pure"
+},
+{
+   "type":"function",
+   "name":"setBlock",
+   "inputs":[
+      {
+         "name":"blockNo",
+         "type":"uint256",
+         "internalType":"uint256"
+      }
+   ],
+   "outputs":[
+
+   ],
+   "stateMutability":"nonpayable"
+},
+{
+   "type":"function",
+   "name":"setChain",
+   "inputs":[
+      {
+         "name":"chainId",
+         "type":"uint256",
+         "internalType":"uint256"
+      },
+      {
+         "name":"blockNo",
+         "type":"uint256",
+         "internalType":"uint256"
+      }
+   ],
+   "outputs":[
+
+   ],
+   "stateMutability":"nonpayable"
+},
+{
+   "type":"function",
+   "name":"tokens",
+   "inputs":[
+      {
+         "name":"",
+         "type":"uint256",
+         "internalType":"uint256"
+      }
+   ],
+   "outputs":[
+      {
+         "name":"addr",
+         "type":"address",
+         "internalType":"address"
+      },
+      {
+         "name":"chainId",
+         "type":"uint256",
+         "internalType":"uint256"
+      },
+      {
+         "name":"blockNumber",
+         "type":"uint256",
+         "internalType":"uint256"
+      }
+   ],
+   "stateMutability":"view"
+}
+];
+
+export const abiVerifier = [
+   {
+   "type":"constructor",
+   "inputs":[
+   {
+   "name":"_prover",
+   "type":"address",
+   "internalType":"address"
+   },
+   {
+   "name":"_nft",
+   "type":"address",
+   "internalType":"contract WhaleBadgeNFT"
+   }
+   ],
+   "stateMutability":"nonpayable"
+   },
+   {
+   "type":"function",
+   "name":"claim",
+   "inputs":[
+   {
+   "name":"",
+   "type":"tuple",
+   "internalType":"struct Proof",
+   "components":[
+   {
+   "name":"seal",
+   "type":"tuple",
+   "internalType":"struct Seal",
+   "components":[
+   {
+   "name":"verifierSelector",
+   "type":"bytes4",
+   "internalType":"bytes4"
+   },
+   {
+   "name":"seal",
+   "type":"bytes32[8]",
+   "internalType":"bytes32[8]"
+   },
+   {
+   "name":"mode",
+   "type":"uint8",
+   "internalType":"enum ProofMode"
+   }
+   ]
+   },
+   {
+   "name":"callGuestId",
+   "type":"bytes32",
+   "internalType":"bytes32"
+   },
+   {
+   "name":"length",
+   "type":"uint256",
+   "internalType":"uint256"
+   },
+   {
+   "name":"callAssumptions",
+   "type":"tuple",
+   "internalType":"struct CallAssumptions",
+   "components":[
+   {
+   "name":"proverContractAddress",
+   "type":"address",
+   "internalType":"address"
+   },
+   {
+   "name":"functionSelector",
+   "type":"bytes4",
+   "internalType":"bytes4"
+   },
+   {
+   "name":"settleBlockNumber",
+   "type":"uint256",
+   "internalType":"uint256"
+   },
+   {
+   "name":"settleBlockHash",
+   "type":"bytes32",
+   "internalType":"bytes32"
+   }
+   ]
+   }
+   ]
+   },
+   {
+   "name":"claimer",
+   "type":"address",
+   "internalType":"address"
+   },
+   {
+   "name":"crossChainBalance",
+   "type":"uint256",
+   "internalType":"uint256"
+   }
+   ],
+   "outputs":[     ],
+   "stateMutability":"nonpayable"
+},
+{
+   "type":"function",
+   "name":"claimed",
+   "inputs":[
+      {
+         "name":"",
+         "type":"address",
+         "internalType":"address"
+      }
+   ],
+   "outputs":[
+      {
+         "name":"",
+         "type":"bool",
+         "internalType":"bool"
+      }
+   ],
+   "stateMutability":"view"
+},
+{
+   "type":"function",
+   "name":"prover",
+   "inputs":[
+
+   ],
+   "outputs":[
+      {
+         "name":"",
+         "type":"address",
+         "internalType":"address"
+      }
+   ],
+   "stateMutability":"view"
+},
+{
+   "type":"function",
+   "name":"reward",
+   "inputs":[
+
+   ],
+   "outputs":[
+      {
+         "name":"",
+         "type":"address",
+         "internalType":"contract WhaleBadgeNFT"
+      }
+   ],
+   "stateMutability":"view"
+},
+{
+   "type":"function",
+   "name":"shiftOffset",
+   "inputs":[
+      {
+         "name":"data",
+         "type":"bytes",
+         "internalType":"bytes"
+      },
+      {
+         "name":"shiftBy",
+         "type":"uint256",
+         "internalType":"uint256"
+      },
+      {
+         "name":"offsetPosition",
+         "type":"uint256",
+         "internalType":"uint256"
+      }
+   ],
+   "outputs":[
+      {
+         "name":"",
+         "type":"bytes",
+         "internalType":"bytes"
+      }
+   ],
+   "stateMutability":"pure"
+},
+{
+   "type":"function",
+   "name":"verifier",
+   "inputs":[
+
+   ],
+   "outputs":[
+      {
+         "name":"",
+         "type":"address",
+         "internalType":"contract IProofVerifier"
+      }
+   ],
+   "stateMutability":"view"
+},
+{
+   "type":"error",
+   "name":"InvalidChainId",
+   "inputs":[
+
+   ]
+}
+];
